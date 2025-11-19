@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package main;
+
+option go_package = ".";
+
+message UserP {
+  int32 id = 1;
+  string name = 2;
+  string role = 3;
+}
+
+message PayloadP { 
+  repeated UserP users = 1;
+}
