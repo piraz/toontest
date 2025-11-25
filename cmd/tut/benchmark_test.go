@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/alpkeskin/gotoon"
+	"github.com/piraz/toonbench"
 	"github.com/toon-format/toon-go"
 	"google.golang.org/protobuf/proto"
 )
@@ -87,16 +88,17 @@ func BenchmarkJsonUnmarshalMap(b *testing.B) {
 	}
 }
 
-func prepareProtoPayload(n int) *PayloadP {
-	users := make([]*UserP, n)
+func prepareProtoPayload(n int) *toonbench.PayloadP {
+
+	users := make([]*toonbench.UserP, n)
 	for i := range n {
-		users[i] = &UserP{
+		users[i] = &toonbench.UserP{
 			Id:   int32(i + 1),
 			Name: fmt.Sprintf("User %d", i+1),
 			Role: roles[rand.Intn(len(roles))],
 		}
 	}
-	return &PayloadP{Users: users}
+	return &toonbench.PayloadP{Users: users}
 }
 
 func BenchmarkProtoMarshal(b *testing.B) {
@@ -113,7 +115,7 @@ func BenchmarkProtoMarshal(b *testing.B) {
 func BenchmarkProtoUnmarshal(b *testing.B) {
 	payload := prepareProtoPayload(100_000)
 	data, _ := proto.Marshal(payload)
-	var out PayloadP
+	var out toonbench.PayloadP
 	b.ResetTimer()
 	for b.Loop() {
 		if err := proto.Unmarshal(data, &out); err != nil {

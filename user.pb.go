@@ -4,15 +4,14 @@
 // 	protoc        v3.19.6
 // source: user.proto
 
-package main
+package toonbench
 
 import (
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
-
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -131,13 +130,13 @@ var File_user_proto protoreflect.FileDescriptor
 const file_user_proto_rawDesc = "" +
 	"\n" +
 	"\n" +
-	"user.proto\x12\x04main\"?\n" +
+	"user.proto\x12\ttoonbench\"?\n" +
 	"\x05UserP\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x12\n" +
-	"\x04role\x18\x03 \x01(\tR\x04role\"-\n" +
-	"\bPayloadP\x12!\n" +
-	"\x05users\x18\x01 \x03(\v2\v.main.UserPR\x05usersB\x03Z\x01.b\x06proto3"
+	"\x04role\x18\x03 \x01(\tR\x04role\"2\n" +
+	"\bPayloadP\x12&\n" +
+	"\x05users\x18\x01 \x03(\v2\x10.toonbench.UserPR\x05usersB\x0eZ\f../toonbenchb\x06proto3"
 
 var (
 	file_user_proto_rawDescOnce sync.Once
@@ -153,11 +152,11 @@ func file_user_proto_rawDescGZIP() []byte {
 
 var file_user_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_user_proto_goTypes = []any{
-	(*UserP)(nil),    // 0: main.UserP
-	(*PayloadP)(nil), // 1: main.PayloadP
+	(*UserP)(nil),    // 0: toonbench.UserP
+	(*PayloadP)(nil), // 1: toonbench.PayloadP
 }
 var file_user_proto_depIdxs = []int32{
-	0, // 0: main.PayloadP.users:type_name -> main.UserP
+	0, // 0: toonbench.PayloadP.users:type_name -> toonbench.UserP
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
