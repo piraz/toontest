@@ -1,4 +1,4 @@
-package main
+package gobench
 
 import (
 	"encoding/json"

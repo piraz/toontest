@@ -3,22 +3,13 @@ package main
 import (
 	"fmt"
 
+	"github.com/piraz/toonbench/gobench"
 	"github.com/toon-format/toon-go"
 )
 
-type User struct {
-	Id   int    `json:"id" toon:"id"`
-	Name string `json:"name" toon:"name"`
-	Role string `json:"role"  toon:"role"`
-}
-
-type Payload struct {
-	Users []User
-}
-
 func main() {
-	in := Payload{
-		Users: []User{
+	in := gobench.Payload{
+		Users: []gobench.User{
 			{Id: 1, Name: "Livi", Role: "admin"},
 			{Id: 2, Name: "Sukinho", Role: "root mermão!!!"},
 		},
@@ -30,7 +21,7 @@ func main() {
 	}
 	fmt.Println(string(encoded))
 
-	var out Payload
+	var out gobench.Payload
 	if err := toon.Unmarshal(encoded, &out); err != nil {
 		panic(err)
 	}
